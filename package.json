@@ -1,0 +1,30 @@
+{
+  "name": "dustin.click",
+  "version": "1.0.0",
+  "description": "Link shortener API - Typescript (By Dustin Rouillard)",
+  "author": "Dustin Rouillard <contact@dustin.sh>",
+  "main": "dist/app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:w": "tsc -w",
+    "start": "node dist/app.js",
+    "dev": "nodemon",
+    "dev:run": "ts-node lib/app.ts"
+  },
+  "license": "Apache",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.11.1",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}

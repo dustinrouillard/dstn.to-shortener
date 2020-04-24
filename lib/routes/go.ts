@@ -12,7 +12,8 @@ const links: any = {
   snapchat: "https://snapchat.com/add/dustinrouillard",
   linkedin: "https://linkedin.com/in/dustinrouillard",
   github: "https://github.com/dustinrouillard",
-  keybase: "https://keybase.io/dustinrouillard"
+  keybase: "https://keybase.io/dustinrouillard",
+  'notify-testflight': 'https://testflight.apple.com/join/jeJkFj14'
 };
 
 route.get('/:code', (req: Request, res: Response, next: NextFunction) => {

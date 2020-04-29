@@ -24,5 +24,5 @@ export const PostgresClient = pgp(ConnectionURL);
 
 (async () => {
     await PostgresClient.connect();
-    Log('Connected to postgres database');
+    Log(`Connected to postgres database [Database: ${PostgresConfig.Database}]`);
 })();

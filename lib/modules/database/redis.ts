@@ -9,7 +9,8 @@ if (RedisConfig.Cluster) RedisConstructor = Redis.Cluster;
 else RedisConstructor = Redis;
 
 let RedisHost = { host: RedisConfig.Host, port: RedisConfig.Port };
-let RedisOptions: RedisOptions = { lazyConnect: true };
+let RedisOptions: RedisOptions = { lazyConnect: true, db: RedisConfig.Database };
+
 let ClusterHost: ClusterNode[] = [RedisHost];
 if (!RedisConfig.Cluster) RedisOptions = { ...RedisHost, ...RedisOptions };
 
@@ -21,7 +22,7 @@ export const RedisClient = new RedisConstructor(HostOrOptions, ConfigOrNone);
 (async () => {
     try {
         await RedisClient.connect(() => {});
-        Log(`Connection opened to redis ${RedisConfig.Cluster ? 'cluster' : 'server'}`);
+        Log(`Connection opened to redis ${RedisConfig.Cluster ? 'cluster' : 'server'} [Database ${RedisConfig.Database}]`);
     } catch (error) {
         Error('Error with the redis database connection', error);
     }

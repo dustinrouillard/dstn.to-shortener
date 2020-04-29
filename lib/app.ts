@@ -1,21 +1,27 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
-import { Go } from './routes';
-import { App } from './modules/config';
+import './modules/database/postgres';
+import { Link, Create } from './routes';
+import { AppConfig } from './modules/config';
+
+import { Log, Request as RequestLogger } from './utils/logger';
 
 const app = express();
 
-app.use('/', Go);
+app.use(express.json());
+app.use(RequestLogger);
 
-app.get('/', (req: express.Request, res: express.Response) => {
-    console.log(`Base - visit:base  - ip:${req.headers['CF-Connecting-IP'] || req.connection.remoteAddress}`);
+app.use('/', Link);
+app.use('/create', Create);
+
+app.get('/', (req: Request, res: Response) => {
     return res.redirect(302, "https://dustin.sh");
 });
 
-app.use((req: express.Request, res: express.Response) => {
+app.use((req: Request, res: Response) => {
     return res.redirect(302, `https://dustin.sh${req.path}`);
 });
 
-app.listen(App.Port, () => {
-    console.log(`Server ready on ${App.Port}`);
+app.listen(AppConfig.Port, () => {
+    Log(`Server ready on ${AppConfig.Port}`);
 });

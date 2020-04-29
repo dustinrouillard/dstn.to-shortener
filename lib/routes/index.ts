@@ -1,3 +1,4 @@
-import Go from './go';
+import { route as Link } from './link';
+import { route as Create } from './create';
 
-export { Go };
+export { Link, Create };

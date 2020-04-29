@@ -22,7 +22,7 @@ export const RedisClient = new RedisConstructor(HostOrOptions, ConfigOrNone);
 (async () => {
     try {
         await RedisClient.connect(() => {});
-        Log(`Connection opened to redis ${RedisConfig.Cluster ? 'cluster' : 'server'} [Database ${RedisConfig.Database}]`);
+        Log(`Connection opened to redis ${RedisConfig.Cluster ? 'cluster' : 'server'} [Database: ${RedisConfig.Database}]`);
     } catch (error) {
         Error('Error with the redis database connection', error);
     }

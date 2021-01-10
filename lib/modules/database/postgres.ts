@@ -14,7 +14,7 @@ const ConnectionOptions: pgPromise.IInitOptions<IExtensions> = {
     },
     extend(obj) {
         obj.findLink = (code: string) => {
-            return obj.one('SELECT code, target, uses FROM links WHERE code = $1', code);
+            return obj.oneOrNone('SELECT code, target, uses FROM links WHERE code = $1', code);
         }
     }
 };

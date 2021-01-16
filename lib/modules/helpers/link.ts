@@ -25,6 +25,16 @@ export async function GetLink(code: string): Promise<{ code: string; target: str
   return checkExists;
 }
 
+export async function DeleteLink(code: string): Promise<boolean> {
+  // Check if the code currently exists
+  const checkExists = await PostgresClient.none('DELETE FROM links WHERE code = $1', [code]);
+
+  await RedisClient.del([`route/${code}/visits`]);
+
+  // Return the code
+  return true;
+}
+
 export async function GetAllLinks(): Promise<{ code: string; target: string; uses: number }[]> {
   // Get the links from the database
   const checkExists: { code: string; target: string; uses: number }[] = await PostgresClient.many('SELECT code, target, uses FROM links');

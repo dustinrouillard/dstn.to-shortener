@@ -1,3 +1,3 @@
-# Dustin.click - Link shortener
+# dstn.to - Link shortener
 
 Documentation coming soon

@@ -1,8 +1,8 @@
 {
-  "name": "dustin.click",
+  "name": "dstn.to",
   "version": "1.0.0",
-  "description": "Link shortener API - Typescript (By Dustin Rouillard)",
-  "author": "Dustin Rouillard <contact@dustin.sh>",
+  "description": "Link shortener API - Typescript",
+  "author": "Dustin Rouillard <code@dstn.to>",
   "main": "dist/app.js",
   "directories": {
     "lib": "lib"
